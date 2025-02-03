@@ -46,7 +46,7 @@
 - key: Projects
   value:
     - value: WildDrone
-    url: https://wilddrone.eu
+      url: https://wilddrone.eu
     - value: Oceans Gromits
       url: https://www.bristol.ac.uk/news/2018/june/gromit-unleashed-starts.html
     - value: Rockets
