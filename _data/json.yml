@@ -1,1 +1,32 @@
-# empty
+- key: Name
+  value: Steve Bullock
+- key: Description
+  value:
+    - Hello!
+    - I'm Steve.
+    - I'm an engineer.
+    - I'm an educator.
+    - I'm a human.
+  typed: true
+- key: CV
+  value: cv.pdf
+  url: /cv.pdf
+- key: Address
+  value:
+    - University of Bristol
+    - Faculty of Engineering
+    - Bristol, UK
+- key: Contact
+  value:
+    - key: Academic email
+      value: steve.bullock@bristol.ac.uk
+      url: "mailto:steve.bullock@bristol.ac.uk"
+    - key: Everything else
+      value: hello@steve.engineer
+      url: "mailto:hello@steve.engineer"
+- key: Profiles
+  value:
+    - value: University of Bristol
+      url: https://research-information.bris.ac.uk/en/persons/steve-bullock
+    - value: LinkedIn
+      url: https://www.linkedin.com/in/steveebullock
