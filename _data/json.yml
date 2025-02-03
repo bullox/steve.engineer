@@ -17,11 +17,11 @@
     - .
     - ..
     - ...
+    - Ha you thought you'd get something fun if you waited. I'm just going to start again.
   typed: true
-- key: CV
-  value: cv.pdf
-  url: /cv.pdf
-- key: Address
+- key: Occupation
+  value: Associate Professor of Aerial Robotics
+- key: Location
   value:
     - University of Bristol
     - Faculty of Engineering
@@ -34,9 +34,20 @@
     - key: Everything else
       value: hello@steve.engineer
       url: "mailto:hello@steve.engineer"
+- key: CV
+  value: cv_sbullock.pdf
+  url: https://github.com/bullox/cv/blob/master/cv_sbullock.pdf
 - key: Profiles
   value:
     - value: University of Bristol
       url: https://research-information.bris.ac.uk/en/persons/steve-bullock
     - value: LinkedIn
       url: https://www.linkedin.com/in/steveebullock
+- key: Projects
+  value:
+    - value: WildDrone
+    url: https://wilddrone.eu
+    - value: Oceans Gromits
+      url: https://www.bristol.ac.uk/news/2018/june/gromit-unleashed-starts.html
+    - value: Rockets
+      url: https://www.bristol.ac.uk/news/2025/january/student-rocket-record.html
