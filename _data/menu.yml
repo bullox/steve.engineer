@@ -2,37 +2,56 @@
 # https://github.com/riggraz/no-style-please#customize-the-menu
 
 entries:
-  - title: info
+  - title: I am...
     entries:
-      - title: a (nearly) no-CSS, fast, minimalist Jekyll theme.
-      - title: github repo
-        url: https://github.com/riggraz/no-style-please
-      - title: "used by <a href='https://riggraz.dev'>riggraz.dev</a> and <a href='https://github.com/riggraz/no-style-please/network/dependents'>many others</a>"
+      - title: associate professor in Bristol Flight Lab
+        url: https://flightlab.bristol.ac.uk
+      - title: training lead for WildDrone and WildBotics
+        url: https://wilddrone.eu
+  - title: I do...
+    entries:
+      - title: interesting things with drones for conservation and humanitarian applications
+      - title: transformative educational activities based around authentic engineering problems
+      - title: inspirational outreach and widening participation activities
+      - title: international education and employability capacity building
+      - title: weird, wonderful, and thought-provoking engineering art
+  - title: I want to...
+    entries: 
+      - title: chat and work with interesting people
+      - title: recruit students who want to make a difference
+        url: https://www.bristol.ac.uk/study/postgraduate/taught/msc-aerial-robotics/
+      - title: update this site with lots of cool work, but hey...
+  - title: find me...
+    entries:
+      - title: on LinkedIn
+        url: https://linkedin.com/in/steve-engineer
+      - title: at Bristol Uni
+        url: https://research-information.bris.ac.uk/en/persons/steve-bullock
 
-  - title: all posts
-    post_list:
-      limit: 5
-      show_more: true
-      show_more_text: See archive...
-      show_more_url: archive.html
+  # - title: all posts
+  #   post_list:
+  #     limit: 5
+  #     show_more: true
+  #     show_more_text: See archive...
+  #     show_more_url: archive.html
 
-  - title: posts by category
-    post_list:
-      category: example2
-      show_more: true
-      show_more_text: See more posts...
-      show_more_url: example2-archive.html
+  # - title: posts by category
+  #   post_list:
+  #     category: example2
+  #     show_more: true
+  #     show_more_text: See more posts...
+  #     show_more_url: example2-archive.html
 
-  - title: rss
-    url: feed.xml
+  # - title: rss
+  #   url: feed.xml
   
-  - title: another list
-    entries:
-      - title: with subitems
-        entries:
-          - title: with subsubitems
-          - title: example page
-            url: about
-  - title: PRO TIP
-    entries:
-      - title: to edit this menu, edit _data/menu.yml file
+  # - title: another list
+  #   entries:
+  #     - title: with subitems
+  #       entries:
+  #         - title: with subsubitems
+  #         - title: example page
+  #           url: about
+  # - title: PRO TIP
+  #   entries:
+  #     - title: to edit this menu, edit _data/menu.yml file
