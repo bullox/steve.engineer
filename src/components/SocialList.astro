@@ -1,0 +1,77 @@
+---
+import { Icon } from "astro-icon/components";
+import { tilt } from "@/utils/tilt";
+
+/**
+	Uses https://www.astroicon.dev/getting-started/
+	Find icons via guide: https://www.astroicon.dev/guides/customization/#open-source-icon-sets
+	Only installed pack is: @iconify-json/mdi
+*/
+
+const socialLinks: {
+	friendlyName: string;
+	isWebmention?: boolean;
+	link?: string;
+	// split user/domain instead of a plain mailto link so the address never sits in the
+	// static HTML as a scrapeable string - assembled client-side on load instead.
+	obfuscatedEmail?: { user: string; domain: string };
+	name: string;
+}[] = [
+	{
+		friendlyName: "LinkedIn",
+		link: "https://linkedin.com/in/steve-engineer",
+		name: "mdi:linkedin",
+	},
+	{
+		friendlyName: "Bristol Uni",
+		link: "https://research-information.bris.ac.uk/en/persons/steve-bullock",
+		name: "mdi:bank",
+	},
+	{
+		friendlyName: "Email",
+		obfuscatedEmail: { user: "hello", domain: "steve.engineer" },
+		name: "mdi:email",
+	},
+];
+---
+
+<div>
+	<h2
+		class="font-display text-accent-2 tilt mb-2 text-lg font-semibold"
+		style={`--tilt: ${tilt("Find me")}`}
+		data-tilt-max="2.5"
+	>
+		Find me
+	</h2>
+	<ul class="flex items-center gap-x-2" role="list">
+		{
+			socialLinks.map(({ friendlyName, isWebmention, link, obfuscatedEmail, name }) => (
+				<li class="flex">
+					<a
+						class="hover:text-link tilt inline-block"
+						style={`--tilt: ${tilt(friendlyName, 8)}`}
+						data-tilt-max="8"
+						href={link ?? "#"}
+						data-email-user={obfuscatedEmail?.user}
+						data-email-domain={obfuscatedEmail?.domain}
+						rel={`noreferrer ${isWebmention ? "me authn" : ""}`}
+						target="_blank"
+					>
+						<Icon aria-hidden="true" class="h-8 w-8" focusable="false" name={name} />
+						<span class="sr-only">{friendlyName}</span>
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</div>
+
+<script>
+	for (const anchor of document.querySelectorAll<HTMLAnchorElement>("a[data-email-user]")) {
+		const { emailUser, emailDomain } = anchor.dataset;
+		if (emailUser && emailDomain) {
+			anchor.href = `mailto:${emailUser}@${emailDomain}`;
+			anchor.removeAttribute("target");
+		}
+	}
+</script>

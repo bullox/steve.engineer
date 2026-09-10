@@ -1,0 +1,189 @@
+@layer theme, base, pagefind, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+/* self-hosted fonts - never fetched from a third-party CDN */
+@import "@fontsource/commit-mono/latin-400.css";
+@import "@fontsource/commit-mono/latin-700.css";
+
+@font-face {
+	font-family: "Departure Mono";
+	src: url("/fonts/departure-mono/DepartureMono-Regular.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* tailwind to ignore satori generated og-image */
+@source not "../pages/og-image";
+/* config for tailwindcss-typography plugin */
+@config "../../tailwind.config.ts";
+
+/* use a selector-based strategy for dark mode */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* register custom colour properties */
+@property --color-global-bg {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: oklch(98.48% 0 0);
+}
+@property --color-global-text {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: oklch(26.99% 0.0096 235.05);
+}
+@property --color-muted {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: oklch(44.6% 0.03 256.802);
+}
+@property --color-link {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: #e27d3e;
+}
+@property --color-accent {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: #5b3b85;
+}
+@property --color-accent-2 {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: oklch(18.15% 0 0);
+}
+@property --color-quote {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: #5b3b85;
+}
+
+/* you could refactor below to use light-dark(), depending on your target audience */
+@theme {
+	--color-global-bg: oklch(98.48% 0 0);
+	--color-global-text: oklch(26.99% 0.0096 235.05);
+	--color-muted: oklch(44.6% 0.03 256.802);
+	--color-link: #e27d3e;
+	--color-accent: #5b3b85;
+	--color-accent-2: oklch(18.15% 0 0);
+	--color-quote: #5b3b85;
+
+	/* body copy: Commit Mono, self-hosted - chosen for reading comfort */
+	--font-mono: "Commit Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+	/* headings, nav, accents: Departure Mono, self-hosted - the quirky one */
+	--font-display: "Departure Mono", "Commit Mono", ui-monospace, monospace;
+}
+
+@layer base {
+	html {
+		color-scheme: light dark;
+		accent-color: var(--color-accent);
+		scrollbar-gutter: stable;
+
+		&[data-theme="light"] {
+			color-scheme: light;
+		}
+
+		&[data-theme="dark"] {
+			color-scheme: dark;
+			--color-global-bg: oklch(23.64% 0.0045 248);
+			--color-global-text: oklch(83.54% 0 264);
+			--color-muted: oklch(70.7% 0.022 261.325);
+			--color-link: #f0a068;
+			--color-accent: #b79ad8;
+			--color-accent-2: oklch(94.66% 0 0);
+			--color-quote: #b79ad8;
+		}
+
+		--color-mode-transition-duration: 300ms;
+		--color-mode-transition-easing: ease-in-out;
+
+		transition:
+			--color-global-bg var(--color-mode-transition-duration) var(--color-mode-transition-easing),
+			--color-global-text var(--color-mode-transition-duration) var(--color-mode-transition-easing),
+			--color-muted var(--color-mode-transition-duration) var(--color-mode-transition-easing),
+			--color-link var(--color-mode-transition-duration) var(--color-mode-transition-easing),
+			--color-accent var(--color-mode-transition-duration) var(--color-mode-transition-easing),
+			--color-accent-2 var(--color-mode-transition-duration) var(--color-mode-transition-easing),
+			--color-quote var(--color-mode-transition-duration) var(--color-mode-transition-easing);
+	}
+
+	:target {
+		scroll-margin-block: 5ex;
+	}
+
+	@view-transition {
+		navigation: auto;
+	}
+
+	/* Astro image responsive styles, modified from -> https://docs.astro.build/en/guides/images/#responsive-image-styles */
+	:where([data-astro-image]) {
+		object-fit: var(--fit);
+		object-position: var(--pos);
+	}
+	[data-astro-image="full-width"] {
+		width: 100%;
+	}
+	[data-astro-image="constrained"] {
+		max-width: 100%;
+	}
+}
+
+@layer components {
+	@import "./components/admonition.css";
+	@import "./components/github-card.css";
+
+	.cactus-link {
+		@apply hover:decoration-link underline underline-offset-2 hover:decoration-2;
+	}
+
+	.title {
+		@apply text-accent-2 font-display text-2xl font-semibold;
+	}
+
+	/* slightly askew at rest, snaps straight on hover - set --tilt via src/utils/tilt.ts */
+	.tilt {
+		display: inline-block;
+		transform: rotate(var(--tilt, 0deg));
+		transform-origin: 0 50%;
+		transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+		&:hover,
+		&:focus-visible {
+			transform: rotate(0deg);
+		}
+	}
+
+	.logo {
+		rotate: var(--tilt, -6deg);
+	}
+	a:hover > .logo,
+	a:focus-visible > .logo {
+		rotate: calc(var(--tilt, -6deg) + 90deg);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.tilt {
+			transition: none;
+		}
+	}
+}
+
+@utility prose {
+	--tw-prose-body: var(--color-global-text);
+	--tw-prose-bold: var(--color-global-text);
+	--tw-prose-bullets: var(--color-global-text);
+	--tw-prose-code: var(--color-global-text);
+	--tw-prose-headings: var(--color-accent-2);
+	--tw-prose-hr: 0.5px dashed #666;
+	--tw-prose-links: var(--color-global-text);
+	--tw-prose-quotes: var(--color-quote);
+	--tw-prose-th-borders: #666;
+
+	:where(h1, h2, h3, h4, h5, h6) {
+		font-family: var(--font-display);
+	}
+}

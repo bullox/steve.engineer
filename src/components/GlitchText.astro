@@ -1,0 +1,18 @@
+---
+/**
+ * Wraps text so a couple of characters occasionally swap for a Departure-Mono-flavoured
+ * alternate glyph, then revert - see src/scripts/glitchText.ts for the mechanism/credit.
+ * The visible text is aria-hidden; a plain sr-only duplicate keeps the accessible name stable.
+ */
+interface Props {
+	text: string;
+	class?: string;
+}
+
+const { text, class: className } = Astro.props;
+---
+
+<span data-glitch class={className}>
+	<span aria-hidden="true" data-glitch-visual>{text}</span>
+	<span class="sr-only">{text}</span>
+</span>
