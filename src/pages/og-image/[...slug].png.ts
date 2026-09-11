@@ -1,8 +1,8 @@
 import type { APIContext, InferGetStaticPropsType } from "astro";
 import satori, { type SatoriOptions } from "satori";
 import sharp from "sharp";
-import CommitMonoBold from "@/assets/commit-mono-700.ttf";
 import CommitMono from "@/assets/commit-mono-400.ttf";
+import CommitMonoBold from "@/assets/commit-mono-700.ttf";
 import DepartureMono from "@/assets/departure-mono-regular.otf";
 import { getAllPosts } from "@/data/post";
 import { getFormattedDate } from "@/utils/date";

@@ -2,7 +2,7 @@ name: ci
 
 on:
   push:
-    branches: [master, redesign-astro]
+    branches: [master]
   pull_request:
     branches: [master]
 
@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   check:
-    name: Type-check and build
+    name: Lint, type-check and build
     runs-on: ubuntu-latest
 
     steps:
@@ -27,8 +27,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run Astro check
+      - name: Lint and format check (biome)
+        run: npx biome check
+
+      - name: Type-check (astro check)
         run: npx astro check
 
-      - name: Run Astro build
+      - name: Build
         run: npm run build

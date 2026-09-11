@@ -37,8 +37,8 @@ function glitchOnce(el: HTMLElement, original: string) {
 
 	const glitched = [...chars];
 	for (const idx of chosen) {
-		const upper = chars[idx]!.toUpperCase();
-		glitched[idx] = pick([...COGNATES[upper]!]);
+		const options = COGNATES[chars[idx]?.toUpperCase() ?? ""];
+		if (options) glitched[idx] = pick([...options]);
 	}
 
 	el.textContent = glitched.join("");

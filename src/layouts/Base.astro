@@ -20,6 +20,17 @@ const {
 	<head>
 		<BaseHead articleDate={articleDate} description={description} ogImage={ogImage} title={title} />
 		<ThemeProvider />
+		{
+			/* Cloudflare Web Analytics - cookieless, no personal data; token is public. Production only. */
+			import.meta.env.PROD && (
+				<script
+					is:inline
+					type="module"
+					src="https://static.cloudflareinsights.com/beacon.min.js"
+					data-cf-beacon={'{"token": "138a6c61549b463eb4c30321af8cfc72"}'}
+				/>
+			)
+		}
 	</head>
 	<body
 		class="bg-global-bg text-global-text mx-auto flex min-h-screen max-w-3xl flex-col px-4 pt-16 font-mono text-sm font-normal antialiased sm:px-8"
