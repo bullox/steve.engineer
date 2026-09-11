@@ -42,7 +42,7 @@ const {
 		</main>
 		<Footer />
 		<script is:inline>
-			for (const el of document.querySelectorAll("[data-tilt-max]")) {
+			for (const el of document.querySelectorAll("[data-tilt-max], .home-md h2")) {
 				const max = Number(el.dataset.tiltMax) || 2.5;
 				el.style.setProperty("--tilt", `${((Math.random() * 2 - 1) * max).toFixed(2)}deg`);
 			}

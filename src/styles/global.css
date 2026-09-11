@@ -145,7 +145,8 @@
 	}
 
 	/* slightly askew at rest, snaps straight on hover - set --tilt via src/utils/tilt.ts */
-	.tilt {
+	.tilt,
+	.home-md h2 {
 		display: inline-block;
 		transform: rotate(var(--tilt, 0deg));
 		transform-origin: 0 50%;
@@ -154,6 +155,23 @@
 		&:hover,
 		&:focus-visible {
 			transform: rotate(0deg);
+		}
+	}
+
+	/* homepage body rendered from content/home.md */
+	.home-md {
+		h2 {
+			@apply font-display text-accent-2 mb-2 text-lg font-semibold;
+		}
+		ul {
+			@apply ms-4 list-disc space-y-1;
+		}
+		li a {
+			@apply hover:decoration-link underline underline-offset-2 hover:decoration-2;
+		}
+		/* each h2 starts a new block; match the spacing of the sections around it */
+		h2:not(:first-child) {
+			@apply mt-8;
 		}
 	}
 

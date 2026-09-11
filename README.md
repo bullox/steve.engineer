@@ -22,7 +22,7 @@ npm run preview   # serve the production build locally
 
 | What | Where |
 | --- | --- |
-| Homepage bio, links | `src/pages/index.astro` (the `bio` array) |
+| Homepage bio | `content/home.md` (frontmatter `title`/`tagline`, then plain markdown) |
 | "Find me" links | `src/components/SocialList.astro` |
 | Site title, description, nav | `src/site.config.ts` |
 | Blog posts | `content/posts/*.md` - `draft: true` hides a post from production builds |

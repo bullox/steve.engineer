@@ -6,6 +6,10 @@ import { getAllPosts } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
 import { collectionDateSort } from "@/utils/date";
 import { tilt } from "@/utils/tilt";
+import * as home from "../../content/home.md";
+
+const { title, tagline } = home.frontmatter as { title: string; tagline: string };
+const Bio = home.Content;
 
 // Pinned Posts, set to a max of 3. Nothing shows here until posts exist and are marked pinned.
 const MAX_PINNED_POSTS = 3;
@@ -16,81 +20,22 @@ const pinnedPosts = allPostsByDate
 	.filter((p) => p.data.pinned)
 	.take(MAX_PINNED_POSTS)
 	.toArray();
-
-const bio: { heading: string; items: { text: string; url?: string }[] }[] = [
-	{
-		heading: "I am...",
-		items: [
-			{ text: "associate professor in Bristol Flight Lab", url: "https://flightlab.bristol.ac.uk" },
-			{ text: "training lead for WildDrone and WildBotics", url: "https://wilddrone.eu" },
-			{
-				text: "a 'full stack' educator with formal experience from primary school teaching through to doctoral training networks",
-			},
-		],
-	},
-	{
-		heading: "I do...",
-		items: [
-			{ text: "drones for conservation and humanitarian applications" },
-			{ text: "transformative education using authentic engineering problems" },
-			{ text: "inspirational outreach and widening participation" },
-			{ text: "international education and employability development" },
-			{ text: "weird engineering art" },
-		],
-	},
-	{
-		heading: "I want to...",
-		items: [
-			{ text: "chat and collaborate with interesting people" },
-			{
-				text: "recruit students who want to use their powers for good",
-				url: "https://www.bristol.ac.uk/study/postgraduate/taught/msc-aerial-robotics/",
-			},
-			{
-				text: "update this site with lots of cool work and hot takes, but don't hold your breath...",
-			},
-		],
-	},
-];
 ---
 
 <PageLayout meta={{ title: "Home" }}>
 	<section>
 		<h1
 			class="font-display text-accent-2 tilt mb-2 text-lg font-semibold"
-			style={`--tilt: ${tilt("Steve Bullock")}`}
+			style={`--tilt: ${tilt(title)}`}
 			data-tilt-max="2.5"
 		>
-			Steve Bullock
+			{title}
 		</h1>
-		<p class="text-muted mb-12">engineer, educator, other things.</p>
-		<div class="space-y-8">
-			{
-				bio.map(({ heading, items }) => (
-					<div>
-						<h2
-							class="font-display text-accent-2 tilt mb-2 text-lg font-semibold"
-							style={`--tilt: ${tilt(heading)}`}
-							data-tilt-max="2.5"
-						>
-							{heading}
-						</h2>
-						<ul class="ms-4 list-disc space-y-1" role="list">
-							{items.map(({ text, url }) => (
-								<li>
-									{url ? (
-										<a class="cactus-link" href={url} rel="noreferrer" target="_blank">
-											{text}
-										</a>
-									) : (
-										text
-									)}
-								</li>
-							))}
-						</ul>
-					</div>
-				))
-			}
+		<p class="text-muted mb-12">{tagline}</p>
+		<div class="home-md">
+			<Bio />
+		</div>
+		<div class="mt-8">
 			<SocialList />
 		</div>
 	</section>

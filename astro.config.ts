@@ -66,6 +66,8 @@ export default defineConfig({
 		}),
 	],
 	markdown: {
+		// keep "..." and straight quotes as typed - no typographic substitutions
+		smartypants: false,
 		processor: satteri({
 			features: { directive: true },
 			mdastPlugins: [
