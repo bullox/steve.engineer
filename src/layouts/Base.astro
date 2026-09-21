@@ -31,6 +31,17 @@ const {
 				/>
 			)
 		}
+		{
+			/* GoatCounter - cookieless, open-source analytics. Production only. */
+			import.meta.env.PROD && (
+				<script
+					is:inline
+					async
+					src="https://gc.zgo.at/count.js"
+					data-goatcounter="https://steve-engineer.goatcounter.com/count"
+				/>
+			)
+		}
 	</head>
 	<body
 		class="bg-global-bg text-global-text mx-auto flex min-h-screen max-w-3xl flex-col px-4 pt-16 font-mono text-sm font-normal antialiased sm:px-8"
