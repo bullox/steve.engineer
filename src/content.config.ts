@@ -46,4 +46,20 @@ const tag = defineCollection({
 	}),
 });
 
-export const collections = { post, tag };
+// Unlisted teaching pages: served under /teaching/, never linked from the nav,
+// the homepage, the sitemap or search. `noindex` also keeps a page out of search engines.
+const teaching = defineCollection({
+	loader: glob({ base: "./content/teaching", pattern: "**/*.{md,mdx}" }),
+	schema: baseSchema.extend({
+		description: z.string(),
+		// the course's own branding, shown beside steve.engineer's at the top of the page
+		course: z.string().optional(),
+		partnerLogo: z
+			.object({ src: z.string(), alt: z.string(), href: z.string().optional() })
+			.optional(),
+		toc: z.boolean().default(false),
+		noindex: z.boolean().default(false),
+	}),
+});
+
+export const collections = { post, tag, teaching };

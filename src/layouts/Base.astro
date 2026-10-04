@@ -12,13 +12,19 @@ interface Props {
 }
 
 const {
-	meta: { articleDate, description = siteConfig.description, ogImage, title },
+	meta: { articleDate, description = siteConfig.description, noindex, ogImage, title },
 } = Astro.props;
 ---
 
 <html class="scroll-smooth" lang={siteConfig.lang}>
 	<head>
-		<BaseHead articleDate={articleDate} description={description} ogImage={ogImage} title={title} />
+		<BaseHead
+			articleDate={articleDate}
+			description={description}
+			noindex={noindex}
+			ogImage={ogImage}
+			title={title}
+		/>
 		<ThemeProvider />
 		{
 			/* Cloudflare Web Analytics - cookieless, no personal data; token is public. Production only. */
@@ -53,7 +59,7 @@ const {
 		</main>
 		<Footer />
 		<script is:inline>
-			for (const el of document.querySelectorAll("[data-tilt-max], .home-md h2")) {
+			for (const el of document.querySelectorAll("[data-tilt-max], .home-md h2, .teach-md h2")) {
 				const max = Number(el.dataset.tiltMax) || 2.5;
 				el.style.setProperty("--tilt", `${((Math.random() * 2 - 1) * max).toFixed(2)}deg`);
 			}

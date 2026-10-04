@@ -146,7 +146,8 @@
 
 	/* slightly askew at rest, snaps straight on hover - set --tilt via src/utils/tilt.ts */
 	.tilt,
-	.home-md h2 {
+	.home-md h2,
+	.teach-md h2 {
 		display: inline-block;
 		transform: rotate(var(--tilt, 0deg));
 		transform-origin: 0 50%;
@@ -203,5 +204,12 @@
 
 	:where(h1, h2, h3, h4, h5, h6) {
 		font-family: var(--font-display);
+	}
+}
+
+/* teaching pages: a partner's logo made for a light background gets a light tile in dark mode */
+@layer components {
+	[data-theme="dark"] .partner-logo {
+		@apply rounded-sm bg-white p-1.5;
 	}
 }

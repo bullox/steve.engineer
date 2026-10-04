@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from "astro:content";
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import TeachingLayout from "@/layouts/TeachingPage.astro";
+
+export const getStaticPaths = (async () => {
+	const pages = await getCollection("teaching");
+	return pages.map((page) => ({
+		params: { slug: page.id },
+		props: { page },
+	}));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { page } = Astro.props;
+const { Content } = await render(page);
+---
+
+<TeachingLayout page={page}>
+	<Content />
+</TeachingLayout>

@@ -28,7 +28,8 @@ export default defineConfig({
 	integrations: [
 		expressiveCode(expressiveCodeOptions),
 		icon(),
-		sitemap(),
+		// teaching pages are unlisted: shared by link only
+		sitemap({ filter: (page) => !page.includes("/teaching/") }),
 		mdx(),
 		robotsTxt(),
 		webmanifest({
