@@ -1,6 +1,6 @@
 ---
 title: "Operating safely, ethically & legally"
-description: "Preparation and resources for the safe, ethical and legal part of Multimodal Ecosystem Sensing, Tuesday 13 October 2026."
+description: "Preparation and resources for the safe, ethical and legal part of Multimodal Ecosystem Sensing."
 course: "Experiential AI & Ecology 2026 · Module 3: multimodal ecosystem sensing"
 partnerLogo:
   src: "/teaching/imageomics2026/imageomics-abc-logo.png"
@@ -9,8 +9,8 @@ partnerLogo:
 ---
 
 These are the resources for my part of
-[Module 3, week 2: Multimodal Ecosystem Sensing](https://imageomics-abc-edu.github.io/AI-Ecology-2026/part-i/module-3/#week-2-multimodal-ecosystem-sensing),
-on **Tuesday 13 October 2026**. Justin Kitzes leads on acoustics and Devis
+[Module 3, week 2: Multimodal Ecosystem Sensing](https://imageomics-abc-edu.github.io/AI-Ecology-2026/part-i/module-3/#week-2-multimodal-ecosystem-sensing).
+Justin Kitzes leads on acoustics and Devis
 Tuia on remote sensing; I'll focus on how to use these technologies safely,
 ethically and legally.
 
@@ -129,6 +129,19 @@ and wider frameworks you'd work within. Your notes from Justin's Devis's, and my
   takes field safety further before you travel.
 - If you'll fly for research in the US, start on
   [Part 107](https://www.faa.gov/uas/commercial_operators/become_a_drone_pilot). Check with your institution about expectations and funding.
+
+## Slides
+
+A ten-minute introduction to the safe, ethical and legal material, to watch
+before the session. [Download the slides (PDF)](/teaching/imageomics2026/slides/safe-ethical-legal.pdf) ·
+[open them full screen](/teaching/imageomics2026/slides/safe-ethical-legal/index.html).
+
+<details class="deck">
+<summary>View the slides here</summary>
+<div class="deck-frame">
+<iframe src="/teaching/imageomics2026/slides/safe-ethical-legal/index.html" title="Operating safely, ethically and legally: slides" loading="lazy" allowfullscreen></iframe>
+</div>
+</details>
 
 ---
 

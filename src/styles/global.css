@@ -213,3 +213,19 @@
 		@apply rounded-sm bg-white p-1.5;
 	}
 }
+
+/* teaching pages: a Marp deck folded into a <details>, 16:9 */
+@layer components {
+	details.deck {
+		@apply my-6 border border-dashed border-(--color-muted) p-3;
+		summary {
+			@apply font-display text-accent cursor-pointer font-semibold;
+		}
+	}
+	.deck-frame {
+		@apply mt-3 aspect-video w-full;
+		iframe {
+			@apply h-full w-full border-0;
+		}
+	}
+}

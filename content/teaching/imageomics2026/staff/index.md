@@ -142,12 +142,21 @@ Prompts he might use, or I can seed in chat, for the dialogue the other way:
       tentative, no date yet
 - [ ] Justin's talk is on Pitt SharePoint, marked internal: I've not linked
       it from these pages; students get it from the course page
-- [ ] Decide on a pre-watch video; if so, add it to the student page under
-      "Before the session"
+- [ ] Record the 10-minute intro video from the
+      [slides](/teaching/imageomics2026/slides/safe-ethical-legal/index.html):
+      press **P** for presenter view, where the speaker notes are a script at
+      about 35 seconds a slide. Add the video link to the student page's Slides
+      section
 - [ ] Agree the run sheet with Devis and Justin, and send Devis the questions
 - [ ] Confirm whether breakout rooms are available for the red team
 
 ## Sources and files
+
+- Slides: `slides/imageomics2026/safe-ethical-legal.md`, Flight Lab Marp
+  theme from `../flightlab-marp-template`. Rebuild with
+  `scripts/build-decks.sh`, which writes the HTML and PDF into
+  `public/teaching/imageomics2026/slides/`. Commit the built files:
+  Cloudflare doesn't run the script.
 
 - Reading draws on [Kjeld Jensen](https://portal.findresearcher.sdu.dk/en/persons/kjen/), *Flying drones safely and compliantly*, and
   [Tom Richardson](https://www.bristol.ac.uk/people/person/Tom-Richardson-63e47259-1d08-4e30-9353-9b1b22e0f749/), *Drone operations in complex environments* (WildBotics S1,
