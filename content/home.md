@@ -5,8 +5,8 @@ tagline: engineer, educator, other things.
 
 ## I am...
 
-- [associate professor in Bristol Flight Lab](https://flightlab.bristol.ac.uk)
-- [training lead for WildDrone and WildBotics](https://wilddrone.eu)
+- associate professor in [Bristol Flight Lab](https://flightlab.bristol.ac.uk)
+- training lead for [WildDrone.eu](https://wilddrone.eu) and [WildBotics](https://wildbotics.eu)
 - a 'full stack' educator with formal experience from primary school teaching through to doctoral training networks
 
 ## I do...
