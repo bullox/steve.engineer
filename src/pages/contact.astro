@@ -1,0 +1,18 @@
+---
+import SocialList from "@/components/SocialList.astro";
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	title: "Contact",
+	description: "How to get in touch with Steve Bullock about talks, visits, and collaborations.",
+};
+---
+
+<PageLayout meta={meta}>
+	<h1 class="title mb-4">Contact</h1>
+	<p class="mb-8">
+		For <a class="cactus-link" href="/talks/">talks</a> and visits, collaborations, student
+		enquiries, or anything else, email is the most reliable way to reach me.
+	</p>
+	<SocialList />
+</PageLayout>

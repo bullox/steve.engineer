@@ -62,4 +62,28 @@ const teaching = defineCollection({
 	}),
 });
 
-export const collections = { post, tag, teaching };
+// Talks: one folder per talk under content/talks/<slug>/ with index.md (abstract as the body)
+// and a thumbnail image alongside it. `deliveries` lists where it (or a version) has been given.
+const talk = defineCollection({
+	loader: glob({ base: "./content/talks", pattern: "**/*.{md,mdx}" }),
+	schema: ({ image }) =>
+		baseSchema.extend({
+			description: z.string(),
+			thumbnail: z.object({ src: image(), alt: z.string() }),
+			duration: z.string().optional(),
+			order: z.number().default(0),
+			draft: z.boolean().default(false),
+			deliveries: z
+				.array(
+					z.object({
+						venue: z.string(),
+						date: z.string(),
+						event: z.string().optional(),
+						url: z.string().url().optional(),
+					}),
+				)
+				.default([]),
+		}),
+});
+
+export const collections = { post, tag, teaching, talk };

@@ -26,6 +26,8 @@ npm run preview   # serve the production build locally
 | "Find me" links | `src/components/SocialList.astro` |
 | Site title, description, nav | `src/site.config.ts` |
 | Blog posts | `content/posts/*.md` - `draft: true` hides a post from production builds |
+| Talks | `content/talks/<slug>/index.md` (abstract as the body; `deliveries` list in frontmatter) plus a `thumbnail` image alongside |
+| Contact page | `src/pages/contact.astro` |
 | Tag descriptions | `content/tags/*.md` |
 | Colours, fonts, base styles | `src/styles/global.css` (Tailwind v4 `@theme` block) |
 | Logo / favicon source | `public/icon.svg` (also inlined in `src/components/layout/Header.astro`) |

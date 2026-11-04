@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets";
+import { getCollection, render } from "astro:content";
+import type { GetStaticPaths, InferGetStaticPropsType } from "astro";
+import PageLayout from "@/layouts/Base.astro";
+
+export const getStaticPaths = (async () => {
+	const talks = await getCollection("talk", ({ data }) =>
+		import.meta.env.PROD ? !data.draft : true,
+	);
+	return talks.map((talk) => ({
+		params: { slug: talk.id },
+		props: { talk },
+	}));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { talk } = Astro.props;
+const { Content } = await render(talk);
+const { title, description, thumbnail, duration, deliveries } = talk.data;
+---
+
+<PageLayout meta={{ title, description }}>
+	<article>
+		<a class="text-muted hover:text-link mb-6 inline-block text-sm" href="/talks/">
+			<span aria-hidden="true">←</span> All talks
+		</a>
+		<h1 class="title mb-2">{title}</h1>
+		{duration && <p class="text-muted mb-6 text-sm">{duration}</p>}
+
+		<Image
+			alt={thumbnail.alt}
+			class="mb-8 aspect-video w-full rounded-sm object-cover"
+			src={thumbnail.src}
+			widths={[640, 1280]}
+			sizes="(min-width: 768px) 48rem, 100vw"
+		/>
+
+		<div class="prose prose-sm prose-cactus max-w-none">
+			<Content />
+		</div>
+
+		{
+			deliveries.length > 0 && (
+				<details class="mt-10">
+					<summary class="font-display text-accent-2 hover:text-link cursor-pointer text-lg font-semibold">
+						Where I've given this talk
+					</summary>
+					<ul class="mt-3 ms-4 list-disc space-y-1" role="list">
+						{deliveries.map(({ venue, date, event, url }) => (
+							<li>
+								{url ? (
+									<a class="cactus-link" href={url} rel="noreferrer" target="_blank">
+										{venue}
+									</a>
+								) : (
+									venue
+								)}
+								{event && <span class="text-muted"> · {event}</span>}
+								<span class="text-muted"> · {date}</span>
+							</li>
+						))}
+					</ul>
+				</details>
+			)
+		}
+
+		<aside class="mt-12 border-t border-dashed pt-6">
+			<h2 class="font-display text-accent-2 mb-2 text-lg font-semibold">Request this talk</h2>
+			<p>
+				I'm happy to give this talk, or a version adapted for your audience, at schools,
+				meetups, conferences, and other events. <a class="cactus-link" href="/contact/">Get in
+				touch</a> to ask about a visit.
+			</p>
+		</aside>
+	</article>
+</PageLayout>
