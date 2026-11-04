@@ -13,7 +13,7 @@ order: 1
 deliveries:
   - venue: "u3a"
     event: "online, follow-up discussion"
-    date: "10 November 2026"
+    date: "11 September 2026"
   - venue: "u3a"
     event: "online"
     date: "29 May 2026"
