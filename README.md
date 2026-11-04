@@ -27,6 +27,7 @@ npm run preview   # serve the production build locally
 | Site title, description, nav | `src/site.config.ts` |
 | Blog posts | `content/posts/*.md` - `draft: true` hides a post from production builds |
 | Talks | `content/talks/<slug>/index.md` (abstract as the body; `deliveries` list in frontmatter) plus a `thumbnail` image alongside |
+| Talk slide decks | built Marp output copied into `public/talks/<slug>/slides/` and pointed at by `slides:` in the talk's frontmatter (see below) |
 | Contact page | `src/pages/contact.astro` |
 | Tag descriptions | `content/tags/*.md` |
 | Colours, fonts, base styles | `src/styles/global.css` (Tailwind v4 `@theme` block) |
@@ -46,6 +47,20 @@ npm run preview   # serve the production build locally
   `.tilt` rule in `global.css`. `src/utils/tilt.ts` provides the deterministic no-JS
   fallback angle.
 - Both effects respect `prefers-reduced-motion`.
+
+### Updating a talk's slides
+
+Each deck lives in its own repo. To refresh the copy embedded on the site, build it there and
+copy the output in, then commit:
+
+```bash
+cd ../talk-drones-what-are-they-good-for && npm run build
+rm -rf ../steve.engineer/public/talks/drones-huh/slides
+cp -R dist ../steve.engineer/public/talks/drones-huh/slides
+npx marp slides/slides.md --image png -o ../steve.engineer/content/talks/drones-huh/thumbnail.png
+```
+
+The last line re-renders slide 1 as the talk's thumbnail.
 
 ## Deployment
 

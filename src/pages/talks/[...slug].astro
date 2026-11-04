@@ -18,7 +18,7 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { talk } = Astro.props;
 const { Content } = await render(talk);
-const { title, description, thumbnail, duration, deliveries } = talk.data;
+const { title, description, thumbnail, duration, deliveries, slides } = talk.data;
 ---
 
 <PageLayout meta={{ title, description }}>
@@ -29,13 +29,35 @@ const { title, description, thumbnail, duration, deliveries } = talk.data;
 		<h1 class="title mb-2">{title}</h1>
 		{duration && <p class="text-muted mb-6 text-sm">{duration}</p>}
 
-		<Image
-			alt={thumbnail.alt}
-			class="mb-8 aspect-video w-full rounded-sm object-cover"
-			src={thumbnail.src}
-			widths={[640, 1280]}
-			sizes="(min-width: 768px) 48rem, 100vw"
-		/>
+		{
+			slides ? (
+				<figure class="mb-8">
+					<iframe
+						allow="fullscreen"
+						allowfullscreen
+						class="aspect-video w-full rounded-sm border border-dashed bg-black"
+						loading="lazy"
+						src={slides}
+						title={`Slides: ${title}`}
+					/>
+					<figcaption class="text-muted mt-2 text-sm">
+						Click the slides, then use the arrow keys to move through them.{" "}
+						<a class="cactus-link" href={slides} rel="noreferrer" target="_blank">
+							Open the slides full screen
+						</a>
+						.
+					</figcaption>
+				</figure>
+			) : (
+				<Image
+					alt={thumbnail.alt}
+					class="mb-8 aspect-video w-full rounded-sm object-cover"
+					src={thumbnail.src}
+					widths={[640, 1280]}
+					sizes="(min-width: 768px) 48rem, 100vw"
+				/>
+			)
+		}
 
 		<div class="prose prose-sm prose-cactus max-w-none">
 			<Content />

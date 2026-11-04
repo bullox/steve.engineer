@@ -71,6 +71,9 @@ const talk = defineCollection({
 			description: z.string(),
 			thumbnail: z.object({ src: image(), alt: z.string() }),
 			duration: z.string().optional(),
+			// Site-relative path to a live HTML slide deck (e.g. a Marp build copied into
+			// public/talks/<slug>/slides/). When set, the talk page embeds it in place of the thumbnail.
+			slides: z.string().optional(),
 			order: z.number().default(0),
 			draft: z.boolean().default(false),
 			deliveries: z
