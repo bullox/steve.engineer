@@ -14,16 +14,21 @@ deliveries:
   - venue: "u3a"
     event: "online, follow-up discussion"
     date: "11 September 2026"
+    url: "https://www.u3a.org.uk/"
   - venue: "u3a"
     event: "online"
     date: "29 May 2026"
+    url: "https://www.u3a.org.uk/"
   - venue: "Lyngford Park Primary School"
     event: "a variation for a primary-school audience"
     date: "21 May 2026"
+    url: "https://www.lyngfordparkprimary.co.uk/"
   - venue: "Pint of Science, Bristol"
     date: "18 May 2026"
+    url: "https://pintofscience.co.uk/"
   - venue: "Kew Millennium Seed Bank"
     date: "22 April 2026"
+    url: "https://www.kew.org/wakehurst/whats-at-wakehurst/millennium-seed-bank"
 ---
 
 Uncrewed aircraft have gone from a niche hobby to an everyday tool in a little

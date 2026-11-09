@@ -7,7 +7,11 @@ thumbnail:
 duration: "15–20 minutes"
 order: 2
 # Where this talk (or a version of it) has been given, newest first.
-deliveries: []
+deliveries:
+  - venue: "Bristol Innovations"
+    event: "lunchtime talks"
+    date: "4 November 2026"
+    url: "https://www.bristol.ac.uk/business/bristol-innovations/"
 ---
 
 The short version of [Drones, huh? What are they good for?](/talks/drones-huh/):
