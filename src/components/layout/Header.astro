@@ -64,7 +64,7 @@ import { siteConfig } from "../../site.config";
 				menuLinks.map((link) => (
 					<a
 						aria-current={Astro.url.pathname === link.path ? "page" : false}
-						class="text-accent font-display tilt px-2 py-4 font-semibold sm:px-4 sm:py-0 sm:underline-offset-2 sm:hover:underline"
+						class="text-accent dark:text-link font-display tilt px-2 py-4 font-semibold sm:px-4 sm:py-0 sm:underline-offset-2 sm:hover:underline"
 						style={`--tilt: ${tilt(link.title, 3)}`}
 						data-tilt-max="3"
 						href={link.path}
