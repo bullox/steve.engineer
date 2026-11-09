@@ -32,7 +32,8 @@ npm run preview   # serve the production build locally
 | Tag descriptions | `content/tags/*.md` |
 | Colours, fonts, base styles | `src/styles/global.css` (Tailwind v4 `@theme` block) |
 | Logo / favicon source | `public/icon.svg` (also inlined in `src/components/layout/Header.astro`) |
-| Social-card (OG) image template | `src/pages/og-image/_ogMarkup.ts` |
+| Default link-preview image | `public/social-card.png`, rendered by `npm run social-card` from `scripts/social-card.mjs` |
+| Per-post OG image template | `src/pages/og-image/_ogMarkup.ts` |
 
 ### Design bits worth knowing
 
